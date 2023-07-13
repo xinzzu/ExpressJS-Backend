@@ -3,14 +3,16 @@ const mongoose = require('mongoose');
 const mahasiswaRouter = require('../ExpressJS/routers/mahasiswarouters');
 const userRouter = require('../ExpressJS/routers/users');
 const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
-const port = 8000; // Adjust the port as needed
+const port = process.env.PORT || 8000; // Adjust the port as needed
 
 app.use(cors());
 
 // Connect to MongoDB
 mongoose
-  .connect('mongodb+srv://azis:1234@cluster0.qejy4pl.mongodb.net/?retryWrites=true&w=majority', {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
