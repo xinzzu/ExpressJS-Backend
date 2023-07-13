@@ -8,16 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/api/.ts",
+      "src": "/api/(.*)",
       "dest": "server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.ts"
+      "dest": "/server.js"
     }
-  ],
-    "env": {
-      "MONGODB_URI": "mongodb+srv://azis:1234@cluster0.qejy4pl.mongodb.net/test?retryWrites=true&w=majority"
-    }
-  }
-  
+  ]
+}
